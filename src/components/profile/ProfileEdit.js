@@ -3,107 +3,108 @@ import { useNavigate } from "react-router-dom"
 
 export const EditProfile = () => {
     const [profile, updateProfile] = useState({
-        headline: "",
-        text: "",
-        categoryId: ""
+        aboutMe: "",
+        picture: "",
+        location: ""
     })
 
     const navigate = useNavigate()
-    
+
     const localKingsUser = localStorage.getItem("kings_user")
     const kingsUserObject = JSON.parse(localKingsUser)
 
+
+    useEffect(() => {
+        fetch(`http://localhost:8088/users/${kingsUserObject.id}`)
+            .then(res => res.json())
+            .then((data) => {
+                updateProfile(data)
+            })
+
+    }, [])
+
+
+    
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
-        const postToSendToAPI = {
-            headline: post.headline,
-            text: post.text,
-            categoryId: post.categoryId,
-            userId: kingsUserObject.id
-        }
-        if (!postToSendToAPI.headline || !postToSendToAPI.text || !postToSendToAPI.categoryId) {
-            window.alert("Please complete post form")
-        } 
-        else {
-            return fetch(`http://localhost:8088/posts`, {
-                method: "POST",
+        
+        
+            return fetch(`http://localhost:8088/users/${profile.id}`, {
+                method: "PUT",
                 headers: {
                     "Content-type": "application/json"
                 },
-                body: JSON.stringify(postToSendToAPI)
+                body: JSON.stringify(profile)
             })
                 .then(res => res.json())
                 .then(() => {
-                    navigate("/")
+                    navigate(`/profile/${kingsUserObject.id}`)
                 })
-        }
 
     }
+    
 
     return (
-        <form className="postForm">
-            <h2 className="postForm_title">Create New Post</h2>
+        <form className="profileForm">
+            <h2 className="profileForm_title">Edit Your Profile</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="headline">Headline:</label>
+                    <label htmlFor="aboutMe">About me:</label>
                     <input
                         required autoFocus
                         type="text"
                         className="form-control"
-                        placeholder="Please enter a headline"
-                        value={post.headline}
+                        placeholder="Tell us about yourself"
+                        value={profile.aboutMe}
                         onChange={
                             (event) => {
-                                const copy = { ...post }
-                                copy.headline = event.target.value
-                                updatePost(copy)
+                                const copy = { ...profile }
+                                copy.aboutMe = event.target.value
+                                updateProfile(copy)
                             }
                         } />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="text">Text:</label>
+                    <label htmlFor="picture">Picture:</label>
                     <input
                         required
                         type="text"
                         className="form-control"
-                        placeholder="What's on your mind?"
-                        value={post.text}
+                        placeholder="Enter picture URL here"
+                        value={profile.picture}
                         onChange={
                             (event) => {
-                                const copy = { ...post }
-                                copy.text = event.target.value
-                                updatePost(copy)
+                                const copy = { ...profile }
+                                copy.picture = event.target.value
+                                updateProfile(copy)
                             }
                         } />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="category">Category:</label>
-                    <select
+                    <label htmlFor="location">Location:</label>
+                    <input
+                        required
+                        type="text"
                         className="form-control"
-                        value={post.categoryId}
+                        placeholder="Where are you from?"
+                        value={profile.location}
                         onChange={
                             (event) => {
-                                const copy = { ...post }
-                                copy.categoryId = parseInt(event.target.value)
-                                updatePost(copy)
+                                const copy = { ...profile }
+                                copy.location = event.target.value
+                                updateProfile(copy)
                             }
-                        }
-                    >
-                        <option>Select category</option>
-                        {categories.map(category => {
-                            return <option value={category.id} key={category.id}>{category.category}</option>
-                        })}
-                    </select>
+                        } />
                 </div>
             </fieldset>
             <button
                 onClick={(clickEvent => handleSaveButtonClick(clickEvent))}
-                className="btn btn-primary">
+                className="button-saveProfile">
                 Save Profile
             </button>
         </form>

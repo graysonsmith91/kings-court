@@ -40,7 +40,7 @@ export const PostDetails = () => {
     }
 
     return <section className="post">
-        <div>{post?.category?.category}</div>
+        <div className="category">{post?.category?.category}</div>
         <div className="post-headline">{post.headline}</div>
         <div className="post-text">{post.text}</div>
         {
