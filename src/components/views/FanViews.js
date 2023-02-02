@@ -1,4 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { CreatePost } from "../posts/CreatePost"
+import { PostDetails } from "../posts/PostDetails"
 import { PostList } from "../posts/PostList"
 
 export const FanViews = () => {
@@ -13,6 +15,8 @@ export const FanViews = () => {
                 </>
             }>
                 <Route path="/" element={<PostList />} />
+                <Route path="create" element={<CreatePost />} />
+                <Route path="post/:postId" element={<PostDetails />} />
             </Route>
         </Routes>
     )
