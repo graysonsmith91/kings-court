@@ -1,31 +1,19 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
-export const CreatePost = () => {
-    const [post, updatePost] = useState({
+export const EditProfile = () => {
+    const [profile, updateProfile] = useState({
         headline: "",
         text: "",
         categoryId: ""
     })
 
-    const [categories, setCategories] = useState([])
-
-    useEffect(
-        () => {
-            fetch('http://localhost:8088/categories')
-                .then(res => res.json())
-                .then((categoriesArray) => {
-                    setCategories(categoriesArray)
-                })
-        },
-        []
-    )
-
     const navigate = useNavigate()
+    
     const localKingsUser = localStorage.getItem("kings_user")
     const kingsUserObject = JSON.parse(localKingsUser)
 
-    const handleSubmitButtonClick = (event) => {
+    const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
         const postToSendToAPI = {
@@ -114,9 +102,9 @@ export const CreatePost = () => {
                 </div>
             </fieldset>
             <button
-                onClick={(clickEvent => handleSubmitButtonClick(clickEvent))}
+                onClick={(clickEvent => handleSaveButtonClick(clickEvent))}
                 className="btn btn-primary">
-                Submit Post
+                Save Profile
             </button>
         </form>
     )

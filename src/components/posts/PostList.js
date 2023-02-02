@@ -32,7 +32,7 @@ export const PostList = () => {
                                 <div className="category">
                                     {post.category.category}
                                 </div>
-                                {post.text}
+                                {post.headline}
 
                             </div>
                         </>
@@ -44,5 +44,3 @@ export const PostList = () => {
         </div>
     </>
 }
-
-// TODO: Can change this map to the PostDetails function and use props from it I think

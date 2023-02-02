@@ -9,8 +9,6 @@ export const PostDetails = () => {
     const kingsUserObject = JSON.parse(localKingsUser)
     const navigate = useNavigate()
 
-    // if post userId matches kingsUserObject id then delete button appear
-
     useEffect(
         () => {
             fetch(`http://localhost:8088/posts/${postId}?_expand=category`)
@@ -43,7 +41,7 @@ export const PostDetails = () => {
 
     return <section className="post">
         <div>{post?.category?.category}</div>
-        <div className="post-headline">Headline goes here</div>
+        <div className="post-headline">{post.headline}</div>
         <div className="post-text">{post.text}</div>
         {
             deleteButton()
