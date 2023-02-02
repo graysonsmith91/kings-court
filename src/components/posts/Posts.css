@@ -1,8 +1,15 @@
 .posts {
-    
+    border: dotted black 1px;
 }
+
 
 .post {
     margin: 10px;
     padding: 10px;
+    border: dotted black 1px;
+    cursor: pointer;
+}
+
+.createPostDiv {
+    text-align: center;
 }
