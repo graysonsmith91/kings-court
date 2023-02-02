@@ -4,13 +4,16 @@ import "./NavBar.css"
 export const UserNav = () => {
     const navigate = useNavigate()
 
+    const localKingsUser = localStorage.getItem("kings_user")
+    const kingsUserObject = JSON.parse(localKingsUser)
+
     return (
         <ul className="navbar">
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">Home</Link>
             </li>
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/profile">Profile</Link>
+                <Link className="navbar__link" to={`/profile/${kingsUserObject.id}`}>Profile</Link>
             </li>
             {
                 localStorage.getItem("kings_user")
