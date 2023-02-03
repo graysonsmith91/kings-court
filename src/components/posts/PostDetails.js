@@ -23,7 +23,7 @@ export const PostDetails = () => {
     )
 
     const deleteButton = () => {
-        if (kingsUserObject.id === post.userId) {
+        if (kingsUserObject.id === post.userId || kingsUserObject.admin) {
             return <button onClick={() => {
                 fetch(`http://localhost:8088/posts/${post.id}`, {
                     method: "DELETE"
@@ -39,13 +39,21 @@ export const PostDetails = () => {
         }
     }
 
-    return <section className="post">
-        <div className="category">{post?.category?.category}</div>
-        <div className="post-headline">{post.headline}</div>
-        <div className="post-text">{post.text}</div>
-        <div className="post-username">{post?.user?.username}</div>
-        <img src={post?.user?.picture} alt="" width="75" height="100" />
-        <div>{deleteButton()}</div>
-    </section>
+    return <>
+        <section className="post_expanded">
+
+            <div className="profile_card">
+                <img src={post?.user?.picture} alt="" width="75" height="100" />
+                <div className="post-username">{post?.user?.username}</div>
+            </div>
+
+            <div className="post_details">
+                <div className="category">{post?.category?.category}</div>
+                <div className="post-headline">{post.headline}</div>
+                <div className="post-text">{post.text}</div>
+                <div className="deletePost_button">{deleteButton()}</div>
+            </div>
+        </section>
+    </>
 
 }
