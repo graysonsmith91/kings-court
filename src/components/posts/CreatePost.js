@@ -81,6 +81,7 @@ export const CreatePost = () => {
                         required
                         type="text"
                         className="form-control"
+                        id="form-text"
                         placeholder="What's on your mind?"
                         value={post.text}
                         onChange={

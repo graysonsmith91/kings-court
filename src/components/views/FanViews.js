@@ -4,14 +4,17 @@ import { PostDetails } from "../posts/PostDetails"
 import { PostList } from "../posts/PostList"
 import { Profile } from "../profile/Profile"
 import { EditProfile } from "../profile/ProfileEdit"
+import "./Views.css"
 
 export const FanViews = () => {
     return (
         <Routes>
             <Route path="/" element={
                 <>
-                    <h1>Kings' Court</h1>
-                    <div>Your favorite Kings community since 2023</div>
+                    <div className="mainpage_header">
+                        <h1 className="kings_header">Kings Court</h1>
+                        <div className="kings_header">Your favorite Kings community since 2023</div>
+                    </div>
 
                     <Outlet />
                 </>
