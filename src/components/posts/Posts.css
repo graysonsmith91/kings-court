@@ -1,8 +1,20 @@
+/* background-color: #63727A; */
+/* Kings grey ^ */
+
 .posts {
     border: solid black 1px;
     width: 70vw;
     margin: 20px auto 20px auto;
-    /* background-color: #63727A; */
+}
+
+.post_expanded {
+    width: 70%;
+    margin: 20px auto 20px auto;
+    display: flex;
+}
+
+.post_details {
+    border: solid black 1px;
 }
 
 .postForm {
@@ -33,11 +45,26 @@
 }
 
 .post-headline {
-    margin-top: 5px;
+    margin: 5px;
+}
+
+.profile_card {
+    border-top: solid black 1px;
+    border-left: solid black 1px;
+    border-bottom: solid black 1px;
+    width: 15%;
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(223, 223, 223);
 }
 
 .post-text {
+    margin: 0px 10px 10px 10px;
+}
+
+.deletePost_button {
     margin: 10px;
+    text-align: end;
 }
 
 .createPostDiv {
@@ -54,4 +81,5 @@
 .category {
     background-color: #5A2D81;
     color: white;
+    padding: 3px 5px;
 }

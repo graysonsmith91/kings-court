@@ -32,7 +32,8 @@ export const CreatePost = () => {
             headline: post.headline,
             text: post.text,
             categoryId: post.categoryId,
-            userId: kingsUserObject.id
+            userId: kingsUserObject.id,
+            datetime: Date.now()
         }
         if (!postToSendToAPI.headline || !postToSendToAPI.text || !postToSendToAPI.categoryId) {
             window.alert("Please complete post form")
