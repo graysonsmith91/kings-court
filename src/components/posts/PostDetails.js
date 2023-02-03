@@ -52,10 +52,11 @@ export const PostDetails = () => {
                 <div className="post-headline">{post.headline}</div>
                 <div className="post-text">{post.text}</div>
                 <div className="deletePost_button">{deleteButton()}</div>
+                <div className="fakediv">
+                    
+                </div>
             </div>
         </section>
     </>
 
 }
-
-// Added to push to github
