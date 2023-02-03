@@ -2,8 +2,8 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
-    background-color: lightblue;
-    padding: 25px;
+    background-color: #5A2D81;
+    padding: 35px;
 }
 
 .navbar__item {
@@ -15,3 +15,6 @@
     margin-left: auto;
 }
 
+.navbar__link {
+    color: white
+}

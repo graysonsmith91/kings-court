@@ -27,8 +27,6 @@ export const EditProfile = () => {
     
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
-
-        
         
             return fetch(`http://localhost:8088/users/${profile.id}`, {
                 method: "PUT",

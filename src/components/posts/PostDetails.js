@@ -11,7 +11,7 @@ export const PostDetails = () => {
 
     useEffect(
         () => {
-            fetch(`http://localhost:8088/posts/${postId}?_expand=category`)
+            fetch(`http://localhost:8088/posts/${postId}?_expand=category&_expand=user`)
                 .then(res => res.json())
                 .then((data) => {
                     const singlePost = data
@@ -43,9 +43,9 @@ export const PostDetails = () => {
         <div className="category">{post?.category?.category}</div>
         <div className="post-headline">{post.headline}</div>
         <div className="post-text">{post.text}</div>
-        {
-            deleteButton()
-        }
+        <div className="post-username">{post?.user?.username}</div>
+        <img src={post?.user?.picture} alt="" width="75" height="100" />
+        <div>{deleteButton()}</div>
     </section>
 
 }
