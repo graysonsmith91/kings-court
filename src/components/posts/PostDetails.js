@@ -49,14 +49,16 @@ export const PostDetails = () => {
 
             <div className="post_details">
                 <div className="category">{post?.category?.category}</div>
+                <div>{post.datetime}</div>
                 <div className="post-headline">{post.headline}</div>
                 <div className="post-text">{post.text}</div>
                 <div className="deletePost_button">{deleteButton()}</div>
-                <div className="fakediv">
-                    
-                </div>
             </div>
         </section>
     </>
 
 }
+
+// TODO: can reuse html as a function that is called when PUT is done for comments
+// same info
+// handleAddCommentButton click event that does the PUT to the posts and adds array somehow?

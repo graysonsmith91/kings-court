@@ -32,6 +32,7 @@ export const PostList = () => {
                                 <div className="category">{post.category.category}</div>
                                 <div className="post_headline">{post.headline}</div>
                                 <div>{post.user.username}</div>
+                                <div>{post.datetime}</div>
 
                             </div>
                         </>
