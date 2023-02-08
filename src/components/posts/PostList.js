@@ -32,6 +32,7 @@ export const PostList = () => {
                                 <div className="category">{post.category.category}</div>
                                 <div className="post_headline">{post.headline}</div>
                                 <div>{post.user.username}</div>
+                                <div>{post.datetime}</div>
 
                             </div>
                         </>
@@ -43,3 +44,6 @@ export const PostList = () => {
         </div>
     </>
 }
+
+// when delete post delete all comments associated... may have to do promise.all derek says 
+// would need to delete from posts and comments

@@ -26,3 +26,7 @@ p {
   margin-block-end: 0;
 }
 
+#root {
+  background-color: rgb(232, 232, 232);
+  min-height: 100vh;
+}

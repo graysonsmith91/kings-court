@@ -28,16 +28,20 @@ export const CreatePost = () => {
     const handleSubmitButtonClick = (event) => {
         event.preventDefault()
 
+        const timeElapsed = Date.now();
+        const today = new Date(timeElapsed);
+        const centralTime = today.toLocaleString('en-US', {timeZone: 'CST'})
+
         const postToSendToAPI = {
             headline: post.headline,
             text: post.text,
             categoryId: post.categoryId,
             userId: kingsUserObject.id,
-            datetime: Date.now()
+            datetime: centralTime
         }
         if (!postToSendToAPI.headline || !postToSendToAPI.text || !postToSendToAPI.categoryId) {
             window.alert("Please complete post form")
-        } 
+        }
         else {
             return fetch(`http://localhost:8088/posts`, {
                 method: "POST",
@@ -53,6 +57,8 @@ export const CreatePost = () => {
         }
 
     }
+
+    // TODO: make function for (event) => {const copy = { ...post }copy.headline = event.target.value updatePost(copy)} to reuse below
 
     return (
         <form className="postForm">
@@ -78,7 +84,7 @@ export const CreatePost = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="text">Text:</label>
-                    <input
+                    <textarea
                         required
                         type="text"
                         className="form-control"
@@ -91,7 +97,9 @@ export const CreatePost = () => {
                                 copy.text = event.target.value
                                 updatePost(copy)
                             }
-                        } />
+                        }
+                        > 
+                    </textarea>
                 </div>
             </fieldset>
             <fieldset>

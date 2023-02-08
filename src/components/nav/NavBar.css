@@ -3,7 +3,7 @@
     flex-wrap: nowrap;
     justify-content: left;
     background-color: #5A2D81;
-    padding: 35px;
+    padding: 55px 50px;
 }
 
 .navbar__item {
@@ -17,4 +17,8 @@
 
 .navbar__link {
     color: white
+}
+
+.navbar__profile {
+    margin-left: auto;
 }
