@@ -134,7 +134,7 @@ export const PostDetails = () => {
         }
 
         if (!commentToSendToAPI.comment) {
-            // window.alert("Please add a comment")
+            window.alert("Please add a comment")
         }
         else {
             return fetch(`http://localhost:8088/comments`, {
