@@ -76,22 +76,7 @@ export const PostDetails = () => {
     }
 
 
-    const deleteButtonForPost = () => {
-        if (kingsUserObject.id === post.userId || kingsUserObject.admin) {
-            return <button onClick={() => {
-                fetch(`http://localhost:8088/posts/${post.id}`, {
-                    method: "DELETE"
-                })
-                    .then(() => {
-                        navigate("/")
-                    })
-
-            }} className="post_delete">Delete</button>
-        }
-        else {
-            return ""
-        }
-    }
+    
 
 
     const deleteButtonForComment = (comment) => {
@@ -177,7 +162,6 @@ export const PostDetails = () => {
                 <div className="post-datetime">{post.datetime}</div>
                 <div className="post-headline">{post.headline}</div>
                 <div className="post-text">{post.text}</div>
-                <div className="deletePost_button">{deleteButtonForPost()}</div>
             </div>
 
         </section>
