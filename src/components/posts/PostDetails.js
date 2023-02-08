@@ -36,6 +36,15 @@ export const PostDetails = () => {
     )
     // does dependency array above need postId? idk
 
+    const refetchComments = () => {
+        fetch(`http://localhost:8088/comments?_expand=user`)
+                .then(res => res.json())
+                .then((allCommentsArray) => {
+                    const filteredComments = allCommentsArray.filter((comment) => comment.postId === parseInt(postId))
+                    SetFilteredComments(filteredComments)
+                })
+    }
+
 
     const displayAllComments = () => {
 
@@ -108,6 +117,7 @@ export const PostDetails = () => {
                 })
                     .then(res => res.json())
                     .then(() => {
+                        refetchComments()
                         navigate(`/post/${postId}`)
                     })
 
@@ -134,7 +144,7 @@ export const PostDetails = () => {
         }
 
         if (!commentToSendToAPI.comment) {
-            // window.alert("Please add a comment")
+            window.alert("Please add a comment")
         }
         else {
             return fetch(`http://localhost:8088/comments`, {
@@ -146,10 +156,11 @@ export const PostDetails = () => {
             })
                 .then(res => res.json())
                 .then(() => {
-                    navigate(`/post/${postId}`)
+                    refetchComments()
+                    document.querySelector('textarea').value = ''
+                    updateComment('')
                 })
         }
-
     }
 
 
@@ -178,6 +189,7 @@ export const PostDetails = () => {
                 <label htmlFor="text">Add comment here:</label>
                 <textarea
                     required
+
                     type="text"
                     className="form-control"
                     id="commentForm-text"
