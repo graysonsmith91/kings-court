@@ -7,11 +7,15 @@ export const PostList = () => {
     const [sortedPosts, setSortedPosts] = useState([])
     const navigate = useNavigate()
 
+    const localKingsUser = localStorage.getItem("kings_user")
+    const kingsUserObject = JSON.parse(localKingsUser)
+
     useEffect(
         () => {
             fetch(`http://localhost:8088/posts?_expand=category&_expand=user`)
                 .then(res => res.json())
                 .then((postsArray) => {
+                    const postsFilteredByCategory = ""
                     setPosts(postsArray)
                 })
         },
@@ -30,6 +34,23 @@ export const PostList = () => {
     )
 
 
+    const deleteButtonForPost = (post) => {
+        if (kingsUserObject.admin) {
+            return <button onClick={() => {
+                fetch(`http://localhost:8088/posts/${post.id}`, {
+                    method: "DELETE"
+                })
+                    .then(() => {
+                        navigate("/")
+                    })
+
+            }} className="post_delete">Delete Post</button>
+        }
+        else {
+            return ""
+        }
+    }
+
 
     return <>
         
@@ -47,13 +68,13 @@ export const PostList = () => {
                                 <div className="post_headline">{post.headline}</div>
                                 <div>{post.user.username}</div>
                                 <div>{post.datetime}</div>
-
+                                <div>{deleteButtonForPost(post)}</div>
                             </div>
                         </>
                     }
                 )
             }
-            
+
         </div>
     </>
 }
