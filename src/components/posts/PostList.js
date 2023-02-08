@@ -44,3 +44,6 @@ export const PostList = () => {
         </div>
     </>
 }
+
+// when delete post delete all comments associated... may have to do promise.all derek says 
+// would need to delete from posts and comments

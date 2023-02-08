@@ -12,7 +12,7 @@ export const UserNav = () => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">Home</Link>
             </li>
-            <li className="navbar__item active">
+            <li className="navbar__item active" id="navbar__profile">
                 <Link className="navbar__link" to={`/profile/${kingsUserObject.id}`}>Profile</Link>
             </li>
             {

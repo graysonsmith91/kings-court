@@ -84,7 +84,7 @@ export const CreatePost = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="text">Text:</label>
-                    <input
+                    <textarea
                         required
                         type="text"
                         className="form-control"
@@ -97,7 +97,9 @@ export const CreatePost = () => {
                                 copy.text = event.target.value
                                 updatePost(copy)
                             }
-                        } />
+                        }
+                        > 
+                    </textarea>
                 </div>
             </fieldset>
             <fieldset>

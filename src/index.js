@@ -10,5 +10,3 @@ root.render(
         <Kings />
     </BrowserRouter>
 )
-
-// TODO: Fix this brooo
