@@ -4,6 +4,7 @@ import "./Posts.css"
 
 export const PostList = () => {
     const [posts, setPosts] = useState([])
+    const [sortedPosts, setSortedPosts] = useState([])
     const navigate = useNavigate()
 
     useEffect(
@@ -17,6 +18,19 @@ export const PostList = () => {
         []
     )
 
+    useEffect(
+        () => {
+            const copyPosts = [...posts]
+            copyPosts.sort((a, b) => {
+                return b.id - a.id
+            })
+            setSortedPosts(copyPosts)
+        },
+        [posts]
+    )
+
+
+
     return <>
         
         <div className="createPostDiv">
@@ -25,7 +39,7 @@ export const PostList = () => {
 
         <div className="posts">
             {
-                posts.map(
+                sortedPosts.map(
                     (post) => {
                         return <>
                             <div className="post" onClick={() => navigate(`/post/${post.id}`)} key={post.id}>
@@ -38,9 +52,8 @@ export const PostList = () => {
                         </>
                     }
                 )
-
             }
-
+            
         </div>
     </>
 }
