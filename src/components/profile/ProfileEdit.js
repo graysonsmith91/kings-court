@@ -43,6 +43,7 @@ export const EditProfile = () => {
     }
     
 
+    // TODO: Refactor onchanges below
     return (
         <form className="profileForm">
             <h2 className="profileForm_title">Edit Your Profile</h2>
@@ -54,7 +55,7 @@ export const EditProfile = () => {
                         type="text"
                         className="form-control"
                         placeholder="Tell us about yourself"
-                        value={profile.aboutMe}
+                        value={profile.aboutMe || ''}
                         onChange={
                             (event) => {
                                 const copy = { ...profile }
@@ -72,7 +73,7 @@ export const EditProfile = () => {
                         type="text"
                         className="form-control"
                         placeholder="Enter picture URL here"
-                        value={profile.picture}
+                        value={profile.picture || ''}
                         onChange={
                             (event) => {
                                 const copy = { ...profile }
@@ -90,7 +91,7 @@ export const EditProfile = () => {
                         type="text"
                         className="form-control"
                         placeholder="Where are you from?"
-                        value={profile.location}
+                        value={profile.location || ''}
                         onChange={
                             (event) => {
                                 const copy = { ...profile }

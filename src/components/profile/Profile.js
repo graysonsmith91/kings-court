@@ -7,6 +7,8 @@ export const Profile = () => {
     const [user, updateUserInfo] = useState([])
 
     const navigate = useNavigate()
+    const localKingsUser = localStorage.getItem("kings_user")
+    const kingsUserObject = JSON.parse(localKingsUser)
 
     useEffect(
         () => {
@@ -17,8 +19,16 @@ export const Profile = () => {
                     updateUserInfo(singleUser)
                 })
         },
-        []
+        [profileId]
     )
+
+    const EditProfileButton = () => {
+        if (kingsUserObject.id === user.id) {
+            return <button className="editProfile-button" onClick={(clickEvent) => navigate(`/profile/${user.id}/edit`)}>Edit my Profile</button>
+        } else {
+            return ""
+        }
+    }
 
     return <>
     
@@ -28,8 +38,7 @@ export const Profile = () => {
         <div>Email: {user.email}</div>
         <div>About me: {user.aboutMe}</div>
         <div>Location: {user.location}</div>
-        <button className="editProfile-button" onClick={(clickEvent) => navigate(`/profile/${user.id}/edit`)}>Edit my Profile</button>
-
+        {EditProfileButton()}
     </section>
     </>
 }

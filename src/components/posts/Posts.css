@@ -15,7 +15,7 @@
 }
 
 .post_details {
-    border: solid black 1px;
+    border: solid rgb(0, 0, 0) 1px;
     min-width: 70%;
     max-width: 400px;
     background-color: whitesmoke;
@@ -68,7 +68,8 @@
     width: 100px;
     text-align: center;
     padding: 10px;
-    background-color: #e1e2e2
+    background-color: #e1e2e2;
+    cursor: pointer;
 }
 
 .post-text {

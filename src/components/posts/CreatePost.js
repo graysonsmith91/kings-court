@@ -130,5 +130,4 @@ export const CreatePost = () => {
             </button>
         </form>
     )
-
 }
