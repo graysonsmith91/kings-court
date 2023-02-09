@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import "./Posts.css"
 
 export const PostList = () => {
     const [posts, setPosts] = useState([])
     const [sortedPosts, setSortedPosts] = useState([])
     const navigate = useNavigate()
+    const { category } = useParams()
 
     const localKingsUser = localStorage.getItem("kings_user")
     const kingsUserObject = JSON.parse(localKingsUser)
@@ -15,8 +16,8 @@ export const PostList = () => {
             fetch(`http://localhost:8088/posts?_expand=category&_expand=user`)
                 .then(res => res.json())
                 .then((postsArray) => {
-                    const postsFilteredByCategory = ""
-                    setPosts(postsArray)
+                    const postsFilteredByCategory = postsArray.filter((post) => post.category.category === category)
+                    setPosts(postsFilteredByCategory)
                 })
         },
         []
@@ -33,7 +34,6 @@ export const PostList = () => {
         [posts]
     )
 
-
     const deleteButtonForPost = (post) => {
         if (kingsUserObject.admin) {
             return <button onClick={() => {
@@ -44,7 +44,7 @@ export const PostList = () => {
                         navigate("/")
                     })
 
-            }} className="post_delete">Delete Post</button>
+            }} className="deletePost_button">Delete Post</button>
         }
         else {
             return ""
@@ -58,15 +58,17 @@ export const PostList = () => {
             <button className="createPost_button" onClick={(clickEvent) => navigate("/create")}>Create a Post</button>
         </div>
 
+        
+
         <div className="posts">
             {
                 sortedPosts.map(
                     (post) => {
                         return <>
                             <div className="post" onClick={() => navigate(`/post/${post.id}`)} key={post.id}>
-                                <div className="category">{post.category.category}</div>
+                                
                                 <div className="post_headline">{post.headline}</div>
-                                <div>{post.user.username}</div>
+                                <div className="post_username">{post.user.username}</div>
                                 <div>{post.datetime}</div>
                                 <div>{deleteButtonForPost(post)}</div>
                             </div>
@@ -78,6 +80,3 @@ export const PostList = () => {
         </div>
     </>
 }
-
-// when delete post delete all comments associated... may have to do promise.all derek says 
-// would need to delete from posts and comments

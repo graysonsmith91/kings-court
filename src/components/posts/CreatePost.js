@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 export const CreatePost = () => {
+    const categoryParam = useParams()
     const [post, updatePost] = useState({
         headline: "",
         text: "",
@@ -52,7 +53,7 @@ export const CreatePost = () => {
             })
                 .then(res => res.json())
                 .then(() => {
-                    navigate("/")
+                    navigate(`/`)
                 })
         }
 
@@ -130,5 +131,4 @@ export const CreatePost = () => {
             </button>
         </form>
     )
-
 }

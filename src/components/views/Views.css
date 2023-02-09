@@ -2,4 +2,12 @@
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     margin: 50px;
+    font-size: 1.5rem;
+}
+
+.kings_header_caption {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 50px;
+    font-size: 1.25rem;
 }

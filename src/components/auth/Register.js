@@ -6,6 +6,7 @@ export const Register = (props) => {
     const [user, setUser] = useState({
         email: "",
         username: "",
+        picture: "https://www.booksie.com/files/profiles/22/mr-anonymous.png",
         isAdmin: false
     })
     let navigate = useNavigate()
@@ -25,7 +26,6 @@ export const Register = (props) => {
                         id: createdUser.id,
                         admin: createdUser.isAdmin
                     }))
-
                     navigate("/")
                 }
             })
@@ -69,7 +69,7 @@ export const Register = (props) => {
                         type="email" id="email" className="form-control"
                         placeholder="Email address" required />
                 </fieldset>
-                <fieldset>
+                {/* <fieldset>
                     <input onChange={(evt) => {
                         const copy = {...user}
                         copy.isStaff = evt.target.checked
@@ -77,7 +77,7 @@ export const Register = (props) => {
                     }}
                         type="checkbox" id="isAdmin" />
                     <label htmlFor="email"> I am an admin </label>
-                </fieldset>
+                </fieldset> */}
                 <fieldset>
                     <button type="submit"> Register </button>
                 </fieldset>

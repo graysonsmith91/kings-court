@@ -1,5 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { CreatePost } from "../posts/CreatePost"
+import { CategoriesList } from "../posts/PostCategories"
 import { PostDetails } from "../posts/PostDetails"
 import { PostList } from "../posts/PostList"
 import { Profile } from "../profile/Profile"
@@ -13,13 +14,14 @@ export const FanViews = () => {
                 <>
                     <div className="mainpage_header">
                         <h1 className="kings_header">Kings Court</h1>
-                        <div className="kings_header">Your favorite Kings community since 2023</div>
+                        <div className="kings_header_caption">Your favorite Kings community since 2023</div>
                     </div>
 
                     <Outlet />
                 </>
             }>
-                <Route path="/" element={<PostList />} />
+                <Route path="/" element={< CategoriesList/>} />
+                <Route path="/:category" element={<PostList />} />
                 <Route path="create" element={<CreatePost />} />
                 <Route path="post/:postId" element={<PostDetails />} />
                 <Route path="profile/:profileId" element={<Profile />} />
