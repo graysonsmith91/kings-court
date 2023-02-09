@@ -2,7 +2,6 @@
 /* Kings grey ^ */
 
 .posts {
-    border: solid black 1px;
     width: 70vw;
     margin: 20px auto 20px auto;
 }
@@ -15,10 +14,12 @@
 }
 
 .post_details {
-    border: solid rgb(0, 0, 0) 1px;
+    border: solid rgb(194, 194, 194) 1px;
     min-width: 70%;
     max-width: 400px;
     background-color: whitesmoke;
+    position: relative;
+    border-radius: 2px;
 }
 
 .comment_details {
@@ -48,23 +49,36 @@
 .post {
     margin: 10px;
     padding: 10px;
-    border: solid black 1px;
+    border: solid rgb(194, 194, 194) 1px;
     cursor: pointer;
     background-color: white;
+    position: relative;
+    border-radius: 2px;
 }
 
-/* .post-username {
-    
-} */
-
 .post-headline {
-    margin: 5px;
+    text-align: center;
+}
+
+.post_headline {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.post_details_headline {
+    font-size: 1.25rem;
+    
+}
+
+.post_username {
+    margin-bottom: 5px;
 }
 
 .profile_card {
-    border-top: solid black 1px;
-    border-left: solid black 1px;
-    border-bottom: solid black 1px;
+    border-top: solid rgb(194, 194, 194) 1px;
+    border-left: solid rgb(194, 194, 194) 1px;
+    border-bottom: solid rgb(194, 194, 194) 1px;
     width: 100px;
     text-align: center;
     padding: 10px;
@@ -77,14 +91,16 @@
 }
 
 .post-datetime {
-    padding: 3px 5px;
-    border-bottom: solid black 1px;
+    padding: 3px 8px;
+    border-bottom: solid rgb(194, 194, 194) 1px;
     font-size: 0.85rem;
 }
 
 .deletePost_button {
     margin: 10px;
-    text-align: end;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .createPostDiv {
@@ -95,15 +111,19 @@
 .createPost_button {
     padding: 5px 20px;
     border-radius: 5px;
-    border: solid 1px black;
+    border: solid 1px rgb(194, 194, 194);
     width: 15vw;
     background-color: white;
+    font-size: 1.1rem;
 }
 
 .category {
-    background-color: #5A2D81;
-    color: white;
-    padding: 3px 5px;
+    padding: 0px 5px 8px 5px;
+    font-size: 1.25rem;
+}
+
+.category_description {
+    padding: 0px 5px 5px 5px;
 }
 
 .addComment_textForm {
@@ -120,5 +140,6 @@
     max-width: 400px;
     min-height: 150px;
     background-color: whitesmoke;
-    border: solid black 1px;
+    border: solid rgb(194, 194, 194) 1px;
+    margin-top: 10px;
 }

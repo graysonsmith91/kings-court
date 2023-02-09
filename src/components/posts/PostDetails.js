@@ -34,15 +34,15 @@ export const PostDetails = () => {
         },
         [postId]
     )
-    
+
 
     const refetchComments = () => {
         fetch(`http://localhost:8088/comments?_expand=user`)
-                .then(res => res.json())
-                .then((allCommentsArray) => {
-                    const filteredComments = allCommentsArray.filter((comment) => comment.postId === parseInt(postId))
-                    SetFilteredComments(filteredComments)
-                })
+            .then(res => res.json())
+            .then((allCommentsArray) => {
+                const filteredComments = allCommentsArray.filter((comment) => comment.postId === parseInt(postId))
+                SetFilteredComments(filteredComments)
+            })
     }
 
 
@@ -147,6 +147,10 @@ export const PostDetails = () => {
 
 
     return <>
+        <div className="post-headline">
+            <h1 className="post_details_headline">{post.headline}</h1>
+        </div>
+
         <section className="post_expanded">
 
             <div className="profile_card" onClick={() => navigate(`/profile/${post.userId}`)}>
@@ -156,7 +160,7 @@ export const PostDetails = () => {
 
             <div className="post_details">
                 <div className="post-datetime">{post.datetime}</div>
-                <div className="post-headline">{post.headline}</div>
+
                 <div className="post-text">{post.text}</div>
             </div>
 
@@ -187,7 +191,7 @@ export const PostDetails = () => {
                 <button className="addComment-btn" onClick={(clickEvent => handlePostCommentButtonClick(clickEvent))}>Post comment</button>
             </div>
         </fieldset>
-        
+
     </>
 
 }

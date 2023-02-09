@@ -14,7 +14,7 @@ export const FanViews = () => {
                 <>
                     <div className="mainpage_header">
                         <h1 className="kings_header">Kings Court</h1>
-                        <div className="kings_header">Your favorite Kings community since 2023</div>
+                        <div className="kings_header_caption">Your favorite Kings community since 2023</div>
                     </div>
 
                     <Outlet />

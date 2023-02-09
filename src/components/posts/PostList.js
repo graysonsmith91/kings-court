@@ -44,7 +44,7 @@ export const PostList = () => {
                         navigate("/")
                     })
 
-            }} className="post_delete">Delete Post</button>
+            }} className="deletePost_button">Delete Post</button>
         }
         else {
             return ""
@@ -58,15 +58,17 @@ export const PostList = () => {
             <button className="createPost_button" onClick={(clickEvent) => navigate("/create")}>Create a Post</button>
         </div>
 
+        
+
         <div className="posts">
             {
                 sortedPosts.map(
                     (post) => {
                         return <>
                             <div className="post" onClick={() => navigate(`/post/${post.id}`)} key={post.id}>
-                                <div className="category">{post.category.category}</div>
+                                
                                 <div className="post_headline">{post.headline}</div>
-                                <div>{post.user.username}</div>
+                                <div className="post_username">{post.user.username}</div>
                                 <div>{post.datetime}</div>
                                 <div>{deleteButtonForPost(post)}</div>
                             </div>

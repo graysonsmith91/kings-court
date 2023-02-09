@@ -26,7 +26,10 @@ export const CategoriesList = () => {
                     (category) => {
                         return <>
                             <div className="post" onClick={() => navigate(`/${category.category}`)}>
-                                <div className="category">{category.category}</div>
+                                <div className="category">
+                                    <h1>{category.category}</h1>
+                                </div>
+                                <div className="category_description">{category.description}</div>
                             </div>
                         </>
                     }
