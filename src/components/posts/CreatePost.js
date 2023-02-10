@@ -2,13 +2,12 @@ import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
 export const CreatePost = () => {
-    const categoryParam = useParams()
+    const category = useParams()
     const [post, updatePost] = useState({
         headline: "",
         text: "",
         categoryId: ""
     })
-
     const [categories, setCategories] = useState([])
 
     useEffect(
@@ -25,6 +24,11 @@ export const CreatePost = () => {
     const navigate = useNavigate()
     const localKingsUser = localStorage.getItem("kings_user")
     const kingsUserObject = JSON.parse(localKingsUser)
+
+    const findCategory = (postToSendToAPI) => {
+        const foundCategory = categories.find((category) => parseInt(postToSendToAPI.categoryId) === category.id)
+        return foundCategory.category
+   }
 
     const handleSubmitButtonClick = (event) => {
         event.preventDefault()
@@ -53,7 +57,7 @@ export const CreatePost = () => {
             })
                 .then(res => res.json())
                 .then(() => {
-                    navigate(`/`)
+                    navigate(`/${findCategory(postToSendToAPI)}`)
                 })
         }
 
@@ -126,7 +130,7 @@ export const CreatePost = () => {
             </fieldset>
             <button
                 onClick={(clickEvent => handleSubmitButtonClick(clickEvent))}
-                className="btn btn-primary">
+                className="createPost_button">
                 Submit Post
             </button>
         </form>
