@@ -21,7 +21,7 @@ export const FanViews = () => {
                 </>
             }>
                 <Route path="/" element={< CategoriesList/>} />
-                <Route path="/:category" element={<PostList />} />
+                <Route path=":category" element={<PostList />} />
                 <Route path="create" element={<CreatePost />} />
                 <Route path="post/:postId" element={<PostDetails />} />
                 <Route path="profile/:profileId" element={<Profile />} />

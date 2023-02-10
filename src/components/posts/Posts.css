@@ -39,6 +39,7 @@
 
 .postForm_title {
     text-align: center;
+    font-size: 1.25rem;
 }
 
 .form-group {
@@ -53,7 +54,6 @@
     margin: 10px;
     padding: 10px;
     border: solid rgb(194, 194, 194) 1px;
-    cursor: pointer;
     background-color: white;
     position: relative;
     border-radius: 2px;
@@ -62,12 +62,14 @@
 
 .post-headline {
     text-align: center;
+    
 }
 
 .post_headline {
     font-size: 1.25rem;
     font-weight: 500;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .post_details_headline {
@@ -131,6 +133,7 @@
 .category {
     padding: 0px 5px 8px 5px;
     font-size: 1.25rem;
+    cursor: pointer;
 }
 
 .category_header {
@@ -166,4 +169,5 @@
 .forums_header {
     font-size: 1.25rem;
     text-align: center;
+    cursor: pointer;
 }

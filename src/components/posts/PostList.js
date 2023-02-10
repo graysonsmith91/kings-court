@@ -34,6 +34,15 @@ export const PostList = () => {
         [posts]
     )
 
+    const refetchPosts = () => {
+        fetch(`http://localhost:8088/posts?_expand=category&_expand=user`)
+            .then(res => res.json())
+            .then((allPostsArray) => {
+                const filteredPosts = allPostsArray.filter((post) => post.category.category === category)
+                setPosts(filteredPosts)
+            })
+    }
+
     const deleteButtonForPost = (post) => {
         if (kingsUserObject.admin) {
             return <button onClick={() => {
@@ -41,7 +50,7 @@ export const PostList = () => {
                     method: "DELETE"
                 })
                     .then(() => {
-                        navigate("/")
+                        refetchPosts()
                     })
 
             }} className="deletePost_button">Delete Post</button>
@@ -65,9 +74,9 @@ export const PostList = () => {
                 sortedPosts.map(
                     (post) => {
                         return <>
-                            <div className="post" onClick={() => navigate(`/post/${post.id}`)} key={post.id}>
+                            <div className="post" key={post.id}>
                                 
-                                <div className="post_headline">{post.headline}</div>
+                                <div className="post_headline" onClick={() => navigate(`/post/${post.id}`)}>{post.headline}</div>
                                 <div className="post_username">{post.user.username}</div>
                                 <div>{post.datetime}</div>
                                 <div>{deleteButtonForPost(post)}</div>
