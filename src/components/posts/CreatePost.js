@@ -126,7 +126,7 @@ export const CreatePost = () => {
             </fieldset>
             <button
                 onClick={(clickEvent => handleSubmitButtonClick(clickEvent))}
-                className="btn btn-primary">
+                className="createPost_button">
                 Submit Post
             </button>
         </form>

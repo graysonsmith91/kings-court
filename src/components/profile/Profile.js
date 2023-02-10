@@ -34,7 +34,7 @@ export const Profile = () => {
     
     <section className="profile">
         <img src={user.picture} alt="" width="150" height="200" />
-        <div>Username: {user.username}</div>
+        <div className="post_headline">{user.username}</div>
         <div>Email: {user.email}</div>
         <div>About me: {user.aboutMe}</div>
         <div>Location: {user.location}</div>

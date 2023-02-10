@@ -20,6 +20,9 @@ export const CategoriesList = () => {
 
     return <>
 
+        <div>
+            <h1 className="forums_header">Community Forums</h1>
+        </div>
         <div className="posts">
             {
                 categories.map(

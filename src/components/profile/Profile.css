@@ -5,6 +5,7 @@
     width: 60vw;
     margin: 20px auto 20px auto;
     background-color: whitesmoke;
+    box-shadow: 1px 1px 1px grey;
 }
 
 .profileForm {

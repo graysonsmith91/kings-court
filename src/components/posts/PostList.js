@@ -58,7 +58,7 @@ export const PostList = () => {
             <button className="createPost_button" onClick={(clickEvent) => navigate("/create")}>Create a Post</button>
         </div>
 
-        
+        <div className="category_header">{category} ({posts.length} posts total)</div>
 
         <div className="posts">
             {
