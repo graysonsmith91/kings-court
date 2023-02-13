@@ -12,7 +12,7 @@ fieldset {
 .form--login {
     display: inline-block;
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
 }
 
 .form--login > fieldset > input[type="email"] {
@@ -39,6 +39,7 @@ fieldset {
     border-radius: .25rem;
     -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
 }
 
 .container--login {
@@ -48,14 +49,59 @@ fieldset {
 .form--login {
     background-position-x: right;
     z-index: 1;
-    min-height: 25rem;
-    min-width: 45rem;
+    min-height: 20rem;
+    min-width: 30rem;
     background-color: hsla(0,0%,100%,0.40);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
+    margin-top: 10rem;
+    text-align: center;
+    border-radius: 5px;
 }
+
 
 .button--close {
     position: relative;
     bottom: -2rem;
+}
+
+.login_header {
+    font-size: 1.25rem;
+    text-align: left;
+    padding: 35px 0 5px 35px;
+    display: block;
+}
+
+.email_header {
+    font-size: 1.25rem;
+    text-align: left;
+    padding: 15px 0px 15px 35px;
+    display: block; 
+}
+
+.email_input {
+    font-size: 1rem;
+    text-align: left;
+    margin-left: 35px;
+    padding: 5px;
+    display: block;
+    border: solid 1px rgb(194, 194, 194);
+    border-radius: 5px;
+    min-width: 25rem;
+}
+
+.login_button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: solid 1px rgb(194, 194, 194);
+    width: 21vw;
+    background-color: #5A2D81;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.link--register {
+    margin: 45px;
 }

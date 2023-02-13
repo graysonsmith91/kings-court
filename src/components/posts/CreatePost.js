@@ -63,7 +63,6 @@ export const CreatePost = () => {
 
     }
 
-    // TODO: make function for (event) => {const copy = { ...post }copy.headline = event.target.value updatePost(copy)} to reuse below
 
     return (
         <form className="postForm">

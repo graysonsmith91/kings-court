@@ -7,8 +7,9 @@
 }
 
 .navbar__item {
-    flex-basis: 20%;
+    flex-basis: 10%;
     list-style-type: none;
+    margin-left: 3rem;
 }
 
 .navbar__logout {
@@ -22,8 +23,4 @@
 
 a:link {
     text-decoration: none;
-}
-
-.navbar__profile {
-    margin-left: auto;
 }
