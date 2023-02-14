@@ -32,26 +32,26 @@ export const Login = () => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Kings' Court</h1>
-                    <h2>Please sign in</h2>
+                    
+                    <h2 className="login_header">Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label className="email_header" htmlFor="inputEmail"> Email </label>
                         <input type="email"
                             value={email}
                             onChange={evt => set(evt.target.value)}
-                            className="form-control"
+                            className="email_input"
                             placeholder="Email address"
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
-                            Sign in
+                        <button type="submit" className="login_button">
+                            Sign In
                         </button>
                     </fieldset>
+                <section className="link--register">
+                    <Link to="/register" className="register--link">Not a member yet?</Link>
+                </section>
                 </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
             </section>
         </main>
     )
