@@ -1,13 +1,34 @@
 .kings_header {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 1.5rem;
 }
 
 .kings_header_caption {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin: 20px auto 50px auto;
+    margin: 10px auto 30px auto;
     font-size: 1.25rem;
+}
+
+.mainpage_header {
+    border: solid rgb(194, 194, 194) 1px;
+    width: 40vw;
+    margin: 40px auto;
+    border-radius: 3px;
+    width: 40vw;
+    margin: 50px auto 50px auto;
+    box-shadow: 1px 1px 1px grey;
+}
+
+.profile {
+    border: solid rgb(194, 194, 194) 1px;
+    border-radius: 3px;
+    padding: 10px;
+    width: 40vw;
+    margin: 20px auto 20px auto;
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 1px grey;
+    display: flex;
 }

@@ -33,12 +33,18 @@ export const Profile = () => {
     return <>
     
     <section className="profile">
-        <img src={user.picture} alt="" width="150" height="200" />
-        <div className="post_headline">{user.username}</div>
-        <div>Email: {user.email}</div>
-        <div>About me: {user.aboutMe}</div>
-        <div>Location: {user.location}</div>
-        {EditProfileButton()}
+
+        <div className="profile_expanded_card">
+            <img src={user.picture} alt="" width="150" height="200" />
+            <div className="profile_headline">{user.username}</div>
+        </div>
+        
+        <div className="profile_expanded_infoContainer">
+            <div className="profile_expanded_info">Email: {user.email}</div>
+            <div className="profile_expanded_info">About me: {user.aboutMe}</div>
+            <div className="profile_expanded_info">Location: {user.location}</div>
+            {EditProfileButton()}
+        </div>
     </section>
     </>
 }
