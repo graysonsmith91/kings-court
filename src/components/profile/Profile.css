@@ -2,10 +2,10 @@
     border: solid rgb(194, 194, 194) 1px;
     border-radius: 3px;
     padding: 10px;
-    width: 60vw;
+    width: 40vw;
     margin: 20px auto 20px auto;
-    background-color: whitesmoke;
     box-shadow: 1px 1px 1px grey;
+    display: flex;
 }
 
 .profileForm {
@@ -13,4 +13,43 @@
     margin: 20px auto 20px auto;
     border: solid 1px rgb(194, 194, 194) ;
     padding: 20px;
+}
+
+.profile_expanded_infoContainer {
+    text-align: center;
+    margin-left: 25px;
+    width: 30vw;
+    border: solid 2px rgb(194, 194, 194);
+    border-radius: 2px;
+    
+}
+
+.profile_expanded_card {
+    margin: 0px 10px;
+}
+
+.profile_headline {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.profile_expanded_info {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1.1rem;
+}
+
+.editProfile-button {
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: solid 1px rgb(194, 194, 194);
+    width: 21vw;
+    background-color: #5A2D81;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 20px;
 }
