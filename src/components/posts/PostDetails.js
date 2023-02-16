@@ -53,8 +53,10 @@ export const PostDetails = () => {
     const indexOfFirstComment = indexOfLastComment - commentsPerPage
     const currentComments = filteredComments.slice(indexOfFirstComment, indexOfLastComment)
 
-    const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
+    
 
     const displayAllComments = () => {
 
@@ -163,27 +165,34 @@ export const PostDetails = () => {
         </div>
 
         {
-            filteredComments.length > 10 ? <Pagination commentsPerPage={commentsPerPage} totalComments={filteredComments.length} paginate={paginate}/> : ""
+            filteredComments.length > 10 ?
+                <Pagination
+                    commentsPerPage={commentsPerPage}
+                    totalComments={filteredComments.length}
+                    paginate={paginate} />
+                : ""
         }
 
-        <section className="post_expanded" key={post.id}>
+        {
+            currentPage === 1 ?
+                <section className="post_expanded" key={post.id}>
 
-            <div className="profile_card" onClick={() => navigate(`/profile/${post.userId}`)}>
-                <img src={post?.user?.picture} alt="" width="75" height="100" />
-                <div className="post-username">{post?.user?.username}</div>
-            </div>
+                    <div className="profile_card" onClick={() => navigate(`/profile/${post.userId}`)}>
+                        <img src={post?.user?.picture} alt="" width="75" height="100" />
+                        <div className="post-username">{post?.user?.username}</div>
+                    </div>
 
-            <div className="post_details">
-                <div className="post-datetime">{post.datetime}</div>
+                    <div className="post_details">
+                        <div className="post-datetime">{post.datetime}</div>
 
-                <div className="post-text">{post.text}</div>
-            </div>
+                        <div className="post-text">{post.text}</div>
+                    </div>
 
-        </section>
+                </section>
+                : ""
+        }
 
         {displayAllComments()}
-
-
 
         <fieldset>
             <div className="addComment_textForm">
@@ -212,7 +221,3 @@ export const PostDetails = () => {
     </>
 
 }
-
-// <Pagination commentsPerPage={commentsPerPage} totalComments={filteredComments.length}/>
-
-// <Pagination commentsPerPage={commentsPerPage} totalComments={totalComments}/>

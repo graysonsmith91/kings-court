@@ -1,5 +1,3 @@
-
-
 export const Pagination = ({ commentsPerPage, totalComments, paginate }) => {
     const pageNumbers = []
     
