@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { Pagination } from "./Pagination"
 
 export const PostDetails = () => {
     const { postId } = useParams()
     const [post, updatePost] = useState({})
     const [filteredComments, SetFilteredComments] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [commentsPerPage] = useState(10)
     const [comment, updateComment] = useState({})
 
     const localKingsUser = localStorage.getItem("kings_user")
     const kingsUserObject = JSON.parse(localKingsUser)
     const navigate = useNavigate()
+
 
     useEffect(
         () => {
@@ -45,16 +49,24 @@ export const PostDetails = () => {
             })
     }
 
+    const indexOfLastComment = currentPage * commentsPerPage
+    const indexOfFirstComment = indexOfLastComment - commentsPerPage
+    const currentComments = filteredComments.slice(indexOfFirstComment, indexOfLastComment)
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
+    
 
     const displayAllComments = () => {
 
         return (
 
             <div className="comments_section">
-                {filteredComments.map((comment) =>
+                {currentComments.map((comment) =>
                     <>
 
-                        <section className="post_expanded">
+                        <section className="post_expanded" key={comment.id}>
                             <div className="profile_card" onClick={() => navigate(`/profile/${comment.userId}`)}>
                                 <img src={comment?.user?.picture} alt="" width="75" height="100" />
                                 <div className="post-username">{comment?.user?.username}</div>
@@ -68,9 +80,10 @@ export const PostDetails = () => {
                         </section>
 
                     </>
-
                 )}
+
             </div>
+
 
         )
     }
@@ -151,20 +164,33 @@ export const PostDetails = () => {
             <h1 className="post_details_headline">{post.headline}</h1>
         </div>
 
-        <section className="post_expanded">
+        {
+            filteredComments.length > 10 ?
+                <Pagination
+                    commentsPerPage={commentsPerPage}
+                    totalComments={filteredComments.length}
+                    paginate={paginate} />
+                : ""
+        }
 
-            <div className="profile_card" onClick={() => navigate(`/profile/${post.userId}`)}>
-                <img src={post?.user?.picture} alt="" width="75" height="100" />
-                <div className="post-username">{post?.user?.username}</div>
-            </div>
+        {
+            currentPage === 1 ?
+                <section className="post_expanded" key={post.id}>
 
-            <div className="post_details">
-                <div className="post-datetime">{post.datetime}</div>
+                    <div className="profile_card" onClick={() => navigate(`/profile/${post.userId}`)}>
+                        <img src={post?.user?.picture} alt="" width="75" height="100" />
+                        <div className="post-username">{post?.user?.username}</div>
+                    </div>
 
-                <div className="post-text">{post.text}</div>
-            </div>
+                    <div className="post_details">
+                        <div className="post-datetime">{post.datetime}</div>
 
-        </section>
+                        <div className="post-text">{post.text}</div>
+                    </div>
+
+                </section>
+                : ""
+        }
 
         {displayAllComments()}
 

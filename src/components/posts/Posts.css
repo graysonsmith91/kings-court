@@ -171,3 +171,31 @@
     text-align: center;
     cursor: pointer;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.page-link {
+    padding: 5px 10px;
+    margin: 2px;
+    background-color: white;
+    border: solid rgb(194, 194, 194) 1px;
+    border-radius: 3px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    cursor: pointer;
+}
+
+.page-link:hover {
+    background-color: #5A2D81;
+    color: white;
+}
+
+.pagination-active {
+    background-color: #5A2D81;
+    color: white;
+}
+
