@@ -12,6 +12,11 @@
     font-size: 1.25rem;
 }
 
+.kings_header_rules {
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
 .mainpage_header {
     border: solid rgb(194, 194, 194) 1px;
     width: 40vw;
