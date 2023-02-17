@@ -13,7 +13,7 @@ export const PostDetails = () => {
     const localKingsUser = localStorage.getItem("kings_user")
     const kingsUserObject = JSON.parse(localKingsUser)
     const navigate = useNavigate()
-
+    const highestPage = Math.ceil(filteredComments.length / commentsPerPage)
 
     useEffect(
         () => {
@@ -56,12 +56,11 @@ export const PostDetails = () => {
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
-    
+
 
     const displayAllComments = () => {
 
         return (
-
             <div className="comments_section">
                 {currentComments.map((comment) =>
                     <>
@@ -81,10 +80,7 @@ export const PostDetails = () => {
 
                     </>
                 )}
-
             </div>
-
-
         )
     }
 
@@ -169,7 +165,8 @@ export const PostDetails = () => {
                 <Pagination
                     commentsPerPage={commentsPerPage}
                     totalComments={filteredComments.length}
-                    paginate={paginate} />
+                    paginate={paginate}
+                    currentPage={currentPage} />
                 : ""
         }
 
@@ -194,29 +191,33 @@ export const PostDetails = () => {
 
         {displayAllComments()}
 
-        <fieldset>
-            <div className="addComment_textForm">
-                <label htmlFor="text">Add comment here:</label>
-                <textarea
-                    required
+        {
+            currentPage === highestPage || filteredComments.length === 0 ?
+            <fieldset>
+                <div className="addComment_textForm">
+                    <label htmlFor="text">Add comment here:</label>
+                    <textarea
+                        required
 
-                    type="text"
-                    className="form-control"
-                    id="commentForm-text"
-                    placeholder="What's on your mind?"
-                    value={post.comments?.comment}
-                    onChange={
-                        (event) => {
-                            const copy = { ...comment }
-                            copy.comment = event.target.value
-                            updateComment(copy)
+                        type="text"
+                        className="form-control"
+                        id="commentForm-text"
+                        placeholder="What's on your mind?"
+                        value={post.comments?.comment}
+                        onChange={
+                            (event) => {
+                                const copy = { ...comment }
+                                copy.comment = event.target.value
+                                updateComment(copy)
+                            }
                         }
-                    }
-                >
-                </textarea>
-                <button className="addComment-btn" onClick={(clickEvent => handlePostCommentButtonClick(clickEvent))}>Post comment</button>
-            </div>
-        </fieldset>
+                    >
+                    </textarea>
+                    <button className="addComment-btn" onClick={(clickEvent => handlePostCommentButtonClick(clickEvent))}>Post comment</button>
+                </div>
+            </fieldset>
+            : ""
+        }
 
     </>
 
