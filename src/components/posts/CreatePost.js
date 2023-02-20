@@ -127,11 +127,13 @@ export const CreatePost = () => {
                     </select>
                 </div>
             </fieldset>
-            <button
-                onClick={(clickEvent => handleSubmitButtonClick(clickEvent))}
-                className="createPost_button">
-                Submit Post
-            </button>
+            <fieldset className="createPostDiv">
+                <button
+                    onClick={(clickEvent => handleSubmitButtonClick(clickEvent))}
+                    className="createPost_button">
+                    Submit Post
+                </button>
+            </fieldset>
         </form>
     )
 }

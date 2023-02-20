@@ -149,6 +149,12 @@ export const PostDetails = () => {
                     document.querySelector('textarea').value = ''
                     updateComment('')
                 })
+                .then(() => {
+                    if (filteredComments.length % 10 === 0 && filteredComments.length > 0) {
+                        setCurrentPage(currentPage + 1)
+                        window.scrollTo(0, 0)
+                    }
+                })
         }
     }
 
@@ -196,7 +202,6 @@ export const PostDetails = () => {
                     <label htmlFor="text">Add comment here:</label>
                     <textarea
                         required
-
                         type="text"
                         className="form-control"
                         id="commentForm-text"
