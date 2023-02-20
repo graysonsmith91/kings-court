@@ -63,7 +63,6 @@ export const PostDetails = () => {
         return (
             <div className="comments_section">
                 {currentComments.map((comment) =>
-                    <>
 
                         <section className="post_expanded" key={comment.id}>
                             <div className="profile_card" onClick={() => navigate(`/profile/${comment.userId}`)}>
@@ -78,7 +77,6 @@ export const PostDetails = () => {
                             </div>
                         </section>
 
-                    </>
                 )}
             </div>
         )
