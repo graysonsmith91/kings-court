@@ -17,6 +17,7 @@ export const Profile = () => {
                 .then((data) => {
                     const singleUser = data
                     updateUserInfo(singleUser)
+                    window.scrollTo(0, 0)
                 })
         },
         [profileId]

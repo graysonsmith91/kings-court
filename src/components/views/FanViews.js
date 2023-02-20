@@ -16,7 +16,7 @@ export const FanViews = () => {
                         <h1 className="kings_header">👑 Kings Court 👑</h1>
                         <div className="kings_header_caption">Your favorite Kings community since 2023</div>
                         <ol className="kings_header_caption">Rules:
-                            <li className="kings_header_rules">1. No Lakers Fans</li>
+                            <li className="kings_header_rules">1. No Lakers fans</li>
                             <li className="kings_header_rules">2. Be respectful, this is a loving community</li>
                             <li className="kings_header_rules">3. Post in the correct forum</li>
                         </ol>
