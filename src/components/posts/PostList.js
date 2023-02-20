@@ -62,7 +62,7 @@ export const PostList = () => {
 
 
     return <>
-        
+
         <div className="createPostDiv">
             <button className="createPost_button" onClick={(clickEvent) => navigate("/create")}>Create a Post</button>
         </div>
@@ -73,19 +73,17 @@ export const PostList = () => {
             {
                 sortedPosts.map(
                     (post) => {
-                        return <>
+                        return (
                             <div className="post" key={post.id}>
-                                
                                 <div className="post_headline" onClick={() => navigate(`/post/${post.id}`)}>{post.headline}</div>
                                 <div className="post_username">{post.user.username}</div>
                                 <div>{post.datetime}</div>
                                 <div>{deleteButtonForPost(post)}</div>
                             </div>
-                        </>
+                        )
                     }
                 )
             }
-
         </div>
     </>
 }
